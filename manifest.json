@@ -1,6 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "discoverAMAZON",
+  "description": "A Chrome extension to alert users to items also sold on Amazon. Particularly useful to maximize Amazon Store Card rewards or other cost savings.",
 	"version": "0.1",
   "content_scripts": [
     {
