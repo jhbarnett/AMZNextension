@@ -8,11 +8,14 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["src/content.js"]
+      "js": ["src/content.js", "src/popup.js"]
     }
   ],
   "browser_action": {
-    "default_icon": "assets/amzn.png"
+    "default_icon": "assets/amzn.png",
+    "default_popup": "popup.html",
+    "default_title": "Find on\nAmazon"
+
   },
   "background": {
     "scripts": ["src/background.js"]
