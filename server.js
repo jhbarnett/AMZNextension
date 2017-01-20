@@ -10,9 +10,9 @@ App.use(BodyParser.urlencoded({extended: true}))
 
 App.use(Express.static(Path.join(__dirname, '../public')));
 
-App.use('/api/AmazonSearch', function(req, res) {
-  console.log('lets do this')
-
+App.use('/api/AmazonSearch/:keywords', function(req, res) {
+  console.log('lets do this', req.params.keywords)
+  res.status(200).send(req.params.keywords).end()
 })
 
 const port = process.env.PORT || 8080
