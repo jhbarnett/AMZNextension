@@ -18,7 +18,5 @@
   "background": {
     "scripts": ["src/background.js"]
   },
-  "permissions": [
-    "webNavigation"
-  ]
+  "permissions": [ "webNavigation" ]
 }

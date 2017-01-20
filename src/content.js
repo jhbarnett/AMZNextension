@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(
 )
 
 function getProductTitle(){
-  let product = document.querySelector("title").innerHTML.split(' ').join('+')
-  chrome.runtime.sendMessage({"message": "fetch_amazon_products", "product": product })   
+  let product = document.querySelector("title").innerHTML.split(' ')
+  chrome.runtime.sendMessage({"message": "retrieved_product", "product": product })   
 }
 
