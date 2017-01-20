@@ -25,9 +25,9 @@ function filterKeywords(product) {
 
 function lookupProducts(keywords) {
   //GET from Amazon Product Advertising API - ItemSearch
-  keywords = keywords.join('+')
+  keywords = keywords.join(' ')
   fetch(`http://localhost:8080/api/AmazonSearch/:${keywords}`)
-  .then(res => { console.log("getting somewhere", res.body) })
+  .then(res => { console.log("getting somewhere", res.body })
 
 }
 
