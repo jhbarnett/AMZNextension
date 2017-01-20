@@ -1,0 +1,17 @@
+{
+  "name": "discoverAmazon",
+  "version": "0.1.0",
+  "description": "A Chrome extension to alert users to items also sold on Amazon. Particularly useful to maximize Amazon Store Card rewards or other cost savings.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Jason Barnett",
+  "license": "MIT",
+  "dependencies": {
+    "apac": "^2.0.2",
+    "body-parser": "^1.16.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0"
+  }
+}

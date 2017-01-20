@@ -26,6 +26,6 @@ function filterKeywords(product) {
 function lookupProducts(keywords) {
   //GET from Amazon Product Advertising API - ItemSearch
 
-  
 }
+
 
