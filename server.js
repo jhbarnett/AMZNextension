@@ -30,16 +30,20 @@ function queryAmazonProducts(keywords) {
 App.use('/api/AmazonSearch/:keywords', function(req, res) {
   queryAmazonProducts(req.params.keywords)
   .then(product => {
-    return {
-      product: product.Item,
-      relatedURL: product.MoreSearchResultsUrl
+    if (product.Item) {
+      return {
+        productURL: product.Item.DetailPageURL,
+        productIMG: product.Item.MediumImage.URL,
+        productTitle: product.Item.ItemAttributes.Title,
+        productPrice: product.Item.ItemAttributes.ListPrice.FormattedPrice,   
+        relatedURL: product.MoreSearchResultsUrl,
+      }
     }
   })
   .then( query => res.status(200).send( query ).end() )
   .catch(err => {
     console.error(err)
   })
-
 })
 
 const port = process.env.PORT || 8080
