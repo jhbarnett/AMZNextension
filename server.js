@@ -36,7 +36,7 @@ App.use('/api/AmazonSearch/:keywords', function(req, res) {
         productIMG: product.Item.MediumImage.URL,
         productTitle: product.Item.ItemAttributes.Title,
         productPrice: product.Item.ItemAttributes.ListPrice.FormattedPrice,   
-        relatedURL: product.MoreSearchResultsUrl,
+        relatedURL: product.MoreSearchResultsUrl
       }
     }
   })

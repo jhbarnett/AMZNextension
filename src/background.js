@@ -1,3 +1,5 @@
+let AmazonProduct = {}
+
 chrome.webNavigation.onCompleted.addListener(function(e){
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     const activeTab = tabs[0]
@@ -14,8 +16,7 @@ chrome.runtime.onMessage.addListener(
       let keywords = filterKeywords(request.product)
       lookupProducts(keywords)
       .then( query => {
-        console.log(query)
-        chrome.runtime.sendMessage({"message": "query_returned", "query": query })
+        AmazonProduct = query
       })
     }
   }
@@ -28,10 +29,10 @@ function filterKeywords(product) {
 }
 
 function lookupProducts(keywords) {
-  //GET from Amazon Product Advertising API - ItemSearch
   keywords = keywords.join(' ')
   return fetch(`http://localhost:8080/api/AmazonSearch/:${keywords}`)
   .then(res => { if (res.ok) return res.text() })
+  .catch(err => console.log('No Amazon Product Match Available'))
 }
 
 
