@@ -1,5 +1,9 @@
 let AmazonProduct = {}
 
+chrome.browserAction.onClicked.addListener(function(tabs){
+  chrome.tabs.create({ url: AmazonProduct.productURL })
+})
+
 chrome.webNavigation.onCompleted.addListener(function(e){
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     const activeTab = tabs[0]
@@ -16,7 +20,8 @@ chrome.runtime.onMessage.addListener(
       let keywords = filterKeywords(request.product)
       lookupProducts(keywords)
       .then( query => {
-        AmazonProduct = query
+        console.log(query)
+        AmazonProduct = JSON.parse(query)
       })
     }
   }
@@ -34,5 +39,3 @@ function lookupProducts(keywords) {
   .then(res => { if (res.ok) return res.text() })
   .catch(err => console.log('No Amazon Product Match Available'))
 }
-
-

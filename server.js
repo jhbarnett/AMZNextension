@@ -28,15 +28,16 @@ function queryAmazonProducts(keywords) {
 }
 
 App.use('/api/AmazonSearch/:keywords', function(req, res) {
+  console.log(req.params.keywords.slice(1))
   queryAmazonProducts(req.params.keywords)
   .then(product => {
     if (product.Item) {
       return {
         productURL: product.Item.DetailPageURL,
-        productIMG: product.Item.MediumImage.URL,
-        productTitle: product.Item.ItemAttributes.Title,
-        productPrice: product.Item.ItemAttributes.ListPrice.FormattedPrice,   
-        relatedURL: product.MoreSearchResultsUrl
+        // productIMG: product.Item.MediumImage.URL,
+        // productTitle: product.Item.ItemAttributes.Title,
+        // productPrice: product.Item.ItemAttributes.ListPrice.FormattedPrice,   
+        // relatedURL: product.MoreSearchResultsUrl
       }
     }
   })
